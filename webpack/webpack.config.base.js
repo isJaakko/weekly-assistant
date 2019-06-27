@@ -9,6 +9,13 @@ module.exports = {
     filename: '[name].[hash:8].js',
     publicPath: '/'
   },
+  module: {
+    rules: [{
+      test: /.js$/,
+      // use: ['babel-loader']
+      use: [{ loader: 'babel-loader' }]
+    }]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',

@@ -93,16 +93,16 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function createElement() {
+var createElement = function createElement() {
   var HelloWorld = document.createElement('h1');
   HelloWorld.innerHTML = 'Hello World！';
   var root = document.getElementById('root');
   root.append(HelloWorld);
-}
+};
 
 createElement();
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.028ea14a.js.map
+//# sourceMappingURL=main.7c2bb185.js.map

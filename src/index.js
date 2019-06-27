@@ -1,4 +1,4 @@
-function createElement() {
+const createElement = () => {
   var HelloWorld = document.createElement('h1');
   HelloWorld.innerHTML = 'Hello World！';
   var root = document.getElementById('root');
