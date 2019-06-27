@@ -1,8 +1,7 @@
-const createElement = () => {
-  var HelloWorld = document.createElement('h1');
-  HelloWorld.innerHTML = 'Hello World！';
-  var root = document.getElementById('root');
-  root.append(HelloWorld);
-}
+import React from 'react';
+import { render } from 'react-dom';
 
-createElement();
+render(
+  <div>Hello React</div>,
+  document.getElementById('root')
+);

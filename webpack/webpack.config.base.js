@@ -7,12 +7,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].[hash:8].js',
-    publicPath: '/'
   },
   module: {
     rules: [{
       test: /.js$/,
-      // use: ['babel-loader']
       use: [{ loader: 'babel-loader' }]
     }]
   },
