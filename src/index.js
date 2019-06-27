@@ -1,7 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './pages/app';
 
 render(
-  <div>Hello React!</div>,
+  <Router>
+    <App />
+  </Router>,
   document.getElementById('root')
 );
