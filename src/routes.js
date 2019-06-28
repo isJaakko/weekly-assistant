@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
 import Loadable from 'react-loadable';
 import Loading from './components/Loading';
 import App from './pages/App';
+import MenuMap from './common/constants/menu';
+
+const delay = 250;
+const timeout = 10000;
 
 const routeMap = [{
   path: '/',
@@ -19,12 +23,12 @@ export default (
   <Router>
     <App>
       {
-        routeMap.map((item, index) => (
+        MenuMap.map((item, index) => (
           <li key={index}>
             <NavLink
               to={item.path}
             >
-              {`${item.component.split('/').slice(-1)}`}
+              {`${item.name}`}
             </NavLink>
           </li>
         ))
@@ -40,8 +44,8 @@ export default (
                 Loadable({
                   loader: () => import(`${item.component}`),
                   loading: Loading,
-                  delay: 200,
-                  timeout: 2000
+                  delay,
+                  timeout
                 })
               }
             />
