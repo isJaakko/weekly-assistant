@@ -27,6 +27,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-stage-2": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.12.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.0.0",
     "happypack": "^5.0.1",
@@ -40,7 +41,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
-    "babel-plugin-import": "^1.12.0",
+    "antd": "^3.19.8",
     "mobx": "^5.10.1",
     "mobx-react": "^6.1.1",
     "react": "^16.8.6",

@@ -13,7 +13,8 @@ module.exports = {
   module: {
     rules: [{
       test: /\.js$/,
-      use: [{ loader: 'babel-loader' }]
+      use: [{ loader: 'babel-loader' }],
+      exclude: /node_modules/,
     }, {
       test: /\.css$/,
       use: [
@@ -27,7 +28,12 @@ module.exports = {
             },
           }
         }
-      ]
+      ],
+      exclude: [path.resolve(__dirname, '../node_modules')]
+    }, {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
+      include: [path.resolve(__dirname, '../node_modules')]
     }, {
       test: /\.less$/,
       use: [
@@ -46,6 +52,12 @@ module.exports = {
           loader: 'less-loader'
         }]
     }]
+  },
+  resolve: {
+    modules: [
+      src,
+      path.resolve(__dirname, '../node_modules'),
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({

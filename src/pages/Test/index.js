@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import { Alert } from "antd";
 import styles from './index.less';
 
 // @inject((stores) => {
@@ -23,6 +24,7 @@ export default class Test extends Component {
   render() {
     return (<div className={styles.testTitle}>
       Test Component!
+      <Alert message="Success Text" type="success" />
         {this.state.data.map(item => item)}
     </div >);
   }
