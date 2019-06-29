@@ -1,10 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'mobx-react';
+import stores from './common/stores';
 import routes from './routes';
 
 render(
-  <div>
+  <Provider {...stores}>
     {routes}
-  </div>,
+  </Provider>,
   document.getElementById('root')
 );
