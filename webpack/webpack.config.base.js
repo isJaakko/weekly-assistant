@@ -8,13 +8,17 @@ module.exports = {
   entry: path.resolve(__dirname, src),
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[hash:8].js',
+    filename: '[name].[hash:8].js'
   },
   module: {
     rules: [{
       test: /\.js$/,
-      use: [{ loader: 'babel-loader' }],
-      exclude: /node_modules/,
+      use: [{
+        loader: 'babel-loader'
+      }, {
+        loader: 'eslint-loader'
+      }],
+      exclude: /node_modules/
     }, {
       test: /\.css$/,
       use: [
@@ -24,8 +28,8 @@ module.exports = {
           options: {
             modules: {
               localIdentName: '[path][name]__[local]--[hash:base64:5]',
-              context: path.resolve(__dirname, src),
-            },
+              context: path.resolve(__dirname, src)
+            }
           }
         }
       ],
@@ -44,8 +48,8 @@ module.exports = {
           loader: 'css-loader',
           options: {
             modules: {
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
-            },
+              localIdentName: '[path][name]__[local]--[hash:base64:5]'
+            }
           }
         },
         {
@@ -56,7 +60,7 @@ module.exports = {
   resolve: {
     modules: [
       src,
-      path.resolve(__dirname, '../node_modules'),
+      path.resolve(__dirname, '../node_modules')
     ]
   },
   plugins: [
@@ -64,6 +68,6 @@ module.exports = {
       filename: 'index.html',
       template: path.resolve(__dirname, '../public/index.html')
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin()
   ]
 }

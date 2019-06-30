@@ -25,7 +25,7 @@ export default class Test extends Component {
     return (<div className={styles.testTitle}>
       Test Component!
       <Alert message="Success Text" type="success" />
-        {this.state.data.map(item => item)}
+      {this.state.data.map(item => item)}
     </div >);
   }
 };
