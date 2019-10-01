@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import Editor from '../Editor';
 // import styles from './index.less';
 
-const { Sider, Content } = Layout;
+const { Content } = Layout;
 
 export default class Home extends PureComponent {
   render() {

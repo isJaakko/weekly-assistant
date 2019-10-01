@@ -1,8 +1,8 @@
 const path = require('path');
-const webpack = require('webpack')
+const webpack = require('webpack');
+const ip = require('ip');
 const base = require('./webpack.config.base');
 const confg = require('./config');
-const ip = require('ip');
 
 const address = ip.address();
 

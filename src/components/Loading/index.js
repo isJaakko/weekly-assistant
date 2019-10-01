@@ -6,9 +6,9 @@ import React from 'react';
 export default function Loading(props) {
   if (props.error) {
     return <div>Error! <button onClick={props.retry}>retry</button></div>;
-  } else if (props.timedOut) {
+  } if (props.timedOut) {
     return <div>Taking a long time... <button onClick={props.retry}>Retry</button></div>;
-  } else if (props.pastDelay) {
+  } if (props.pastDelay) {
     // return <div><Spin /></div>;
     return <div>加载中...</div>;
   }

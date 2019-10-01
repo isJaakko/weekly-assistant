@@ -1,22 +1,20 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import classNames from 'classnames';
-import template from '_src/constants';
+// import classNames from 'classnames';
+// import template from '_src/constants';
 
-@inject('articleStore')
+@inject('weeklyStore')
 @observer
 export default class Preview extends React.Component {
   render() {
-    const { articleStore } = this.props;
-    const { article } = articleStore;
-
-    return (<div className="preview-wrap">
-      {
+    return (
+      <div className="preview-wrap">
+        {/* {
         template.map((item, index) => (
           <div
             key={index}
-            className={classNames("template-title", {
-              "template-alarm-title": item.type === 'alarm',
+            className={classNames('template-title', {
+              'template-alarm-title': item.type === 'alarm',
             })}
           >
             {item.title}
@@ -27,7 +25,8 @@ export default class Preview extends React.Component {
             })}
           </div>
         ))
-      }
-    </div>);
+      } */}
+      </div>
+    );
   }
 }

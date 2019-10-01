@@ -50,6 +50,7 @@
   "dependencies": {
     "antd": "^3.19.8",
     "classnames": "^2.2.6",
+    "eslint-import-resolver-alias": "^1.1.2",
     "mobx": "^5.10.1",
     "mobx-react": "^6.1.1",
     "react": "^16.8.6",

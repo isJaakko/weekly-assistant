@@ -53,12 +53,13 @@ module.exports = {
           // }
         },
         {
-          loader: 'less-loader' 
+          loader: 'less-loader'
         }],
       exclude: [path.resolve(__dirname, '../node_modules')]
     }]
   },
   resolve: {
+    extensions: ['.js', '.less', '.jsx'],
     modules: [
       src,
       path.resolve(__dirname, '../node_modules')
@@ -74,4 +75,4 @@ module.exports = {
     }),
     new CleanWebpackPlugin()
   ]
-}
+};

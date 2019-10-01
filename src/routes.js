@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink
-} from "react-router-dom";
+  // NavLink
+} from 'react-router-dom';
 
-import Loadable from "react-loadable";
-import Loading from "./components/Loading";
-import App from "./pages/App";
+import Loadable from 'react-loadable';
+import Loading from './components/Loading';
+import App from './pages/App';
 // import MenuMap from "./constants/menu";
 
 const delay = 250;
@@ -16,8 +16,8 @@ const timeout = 10000;
 
 const routeMap = [
   {
-    path: "/",
-    component: "./pages/Home",
+    path: '/',
+    component: './pages/Home',
     exact: true
   },
 ];

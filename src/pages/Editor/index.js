@@ -10,19 +10,11 @@ const { Sider, Content } = Layout;
 const { TextArea } = Input;
 const { Item } = Form;
 
-const initChildren = {
-  id: 222,
-  level: 2,
-  text: 'new',
-  children: []
-};
 
 @observer
-@inject('articleStore')
+@inject('weeklyStore')
 class Editor extends React.Component {
   render() {
-    const { articleStore } = this.props;
-    const { article } = articleStore;
     const formLayout = {
       layout: 'vertical',
       labelCol: {
@@ -39,26 +31,23 @@ class Editor extends React.Component {
         <Sider>
           <Form {...formLayout}>
             {
-              Template.map((item) => {
-                return (
-                  <Card
-                    title={item.title}
-                    key={item.key}
-                    // tabList={article && article.map(item => ({ key: item.id, tab: item.text }))}
-                    onAdd={() => {
+              Template.map(item => (
+                <Card
+                  title={item.title}
+                  key={item.key}
+                  // tabList={article && article.map(item => ({ key: item.id, tab: item.text }))}
+                  onAdd={() => {
 
-                    }}
-                  // tabList={['tab1', 'tab2']}
-                  >
-                    <Item label="模块名称">
-                      <Input />
-                    </Item>
-                    <Item label="内容">
-                      <TextArea />
-                    </Item>
-                  </Card>
-                );
-              })
+                  }}
+                >
+                  <Item label="模块名称">
+                    <Input />
+                  </Item>
+                  <Item label="内容">
+                    <TextArea />
+                  </Item>
+                </Card>
+              ))
             }
           </Form>
         </Sider>
