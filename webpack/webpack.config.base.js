@@ -46,22 +46,26 @@ module.exports = {
         },
         {
           loader: 'css-loader',
-          options: {
-            modules: {
-              localIdentName: '[path][name]__[local]--[hash:base64:5]'
-            }
-          }
+          // options: {
+          // modules: {
+          // localIdentName: '[path][name]__[local]--[hash:base64:5]'
+          // }
+          // }
         },
         {
-          loader: 'less-loader'
-        }]
+          loader: 'less-loader' 
+        }],
+      exclude: [path.resolve(__dirname, '../node_modules')]
     }]
   },
   resolve: {
     modules: [
       src,
       path.resolve(__dirname, '../node_modules')
-    ]
+    ],
+    alias: {
+      _src: path.resolve(__dirname, src),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

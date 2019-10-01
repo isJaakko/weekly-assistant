@@ -1,7 +1,7 @@
 {
-  "name": "react-mobx-app",
+  "name": "weekly-assistant",
   "version": "1.0.0",
-  "description": "webpac+react+mobx 框架",
+  "description": "周报辅助",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "antd": "^3.19.8",
+    "classnames": "^2.2.6",
     "mobx": "^5.10.1",
     "mobx-react": "^6.1.1",
     "react": "^16.8.6",

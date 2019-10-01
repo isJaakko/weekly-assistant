@@ -1,0 +1,18 @@
+// 字号
+@font12: 12px;
+@font18: 18px;
+
+// 颜色
+@common-blue: #0070C0;
+@warning-red: #FF0000;
+
+// 方法
+.font(@fontSize, @color) {
+  font-size: @fontSize;
+  color: @color;
+}
+
+.template-title(@color) {
+  font-size: @font18;
+  color: @color;
+}

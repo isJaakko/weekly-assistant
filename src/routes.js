@@ -9,7 +9,7 @@ import {
 import Loadable from "react-loadable";
 import Loading from "./components/Loading";
 import App from "./pages/App";
-import MenuMap from "./common/constants/menu";
+// import MenuMap from "./constants/menu";
 
 const delay = 250;
 const timeout = 10000;
@@ -17,24 +17,14 @@ const timeout = 10000;
 const routeMap = [
   {
     path: "/",
-    component: "./pages/Main",
+    component: "./pages/Home",
     exact: true
   },
-  {
-    path: "/test",
-    component: "./pages/Test",
-    exact: true
-  }
 ];
 
 export default (
   <Router>
     <App>
-      {MenuMap.map((item, index) => (
-        <li key={index}>
-          <NavLink to={item.path}>{`${item.name}`}</NavLink>
-        </li>
-      ))}
       <Switch>
         {routeMap.map((item, index) => (
           <Route
