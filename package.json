@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isJaakko/react-mobx-app.git"
+    "url": "git+https://github.com/isJaakko/weekly-assistant.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/isJaakko/react-mobx-app/issues"
+    "url": "https://github.com/isJaakko/weekly-assistant/issues"
   },
-  "homepage": "https://github.com/isJaakko/react-mobx-app#readme",
+  "homepage": "https://github.com/isJaakko/weekly-assistant#readme",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",

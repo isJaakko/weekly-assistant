@@ -1,6 +1,6 @@
-# react-mobx-app
-webpac+react+mobx 框架
- 
+# weekly-assistant
+一键生成周报
+
 ## 一、创建项目结构
 
 ### 创建项目
@@ -21,4 +21,4 @@ mkdir public
 mkdir webpack
 ```
 
-创建 
+创建
