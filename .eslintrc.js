@@ -17,10 +17,11 @@ module.exports = {
       "rules": {
         'arrow-parens': 'off',
         'arrow-body-style': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'import/prefer-default-export': 'off',
         'react/jsx-filename-extension': 'off',
         'react/no-array-index-key': 'off',
         'react/prop-types': 'off',
-        'import/no-extraneous-dependencies': 'off',
         'react/button-has-type': 'off',
         'react/destructuring-assignment': 'off',
         'react/jsx-one-expression-per-line': 'off'

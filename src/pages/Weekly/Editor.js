@@ -1,59 +1,112 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Form, Input } from 'antd';
+import { Form, Input, Icon } from 'antd';
 import Card from '_src/components/Card';
+import { globalMessage } from '_src/utils';
 // import Template from '_src/constants';
 import './Editor.less';
 
-const { TextArea } = Input;
-const { Item } = Form;
+// const { TextArea } = Input;
+// const { Item } = Form;
 
-@observer
 @inject('weeklyStore')
+@observer
 class Editor extends React.Component {
   onAdd = (parentId) => {
     const { weeklyStore } = this.props;
     weeklyStore.addWeeklyItem(parentId);
   }
 
+  onDelete = (id) => {
+    const { weeklyStore } = this.props;
+    weeklyStore.deleteWeeklyItem(id);
+  }
+
+  handleChange = (e, { key, id }) => {
+    const { weeklyStore } = this.props;
+    // const { updateFormInfo } = weeklyStore;
+    const { value } = e.target;
+
+    weeklyStore.updateFormInfo('weekly', key, value, id);
+  }
+
+  renderCardList = (cardList) => {
+    return cardList.map((item) => {
+      if (item.children.length) {
+        return (
+          <Card
+            title={item.title}
+            key={item.key}
+            onAdd={() => {
+              this.onAdd(item.id);
+            }}
+            onDelete={() => {
+              globalMessage('warning', '请先删除下级标题');
+            }}
+          >
+            {this.renderCardList(item.children)}
+          </Card>
+        );
+      }
+      return (
+        <Card
+          title={(
+            <Input
+              value={item.title}
+              onChange={(e) => {
+                this.handleChange(e, { key: 'title', id: item.id });
+              }}
+            />
+          )}
+          key={item.key}
+          onAdd={() => {
+            this.onAdd(item.id);
+          }}
+          onDelete={() => {
+            this.onDelete(item.id);
+          }}
+          bodyStyle={{ display: 'none' }}
+        />
+        //   <Input
+        //     value={item.title}
+        //     onChange={(e) => {
+        //       this.handleChange(e, { key: 'title', id: item.id });
+        //     }}
+        //   />
+        // </Card>
+      );
+    });
+  }
+
   render() {
     const { weeklyStore } = this.props;
-    const { weeklyList } = weeklyStore;
-    const formLayout = {
-      layout: 'vertical',
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 4 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 },
-      },
-    };
-
+    const { weeklyTree } = weeklyStore;
+    // const formLayout = {
+    //   layout: 'vertical',
+    //   labelCol: {
+    //     xs: { span: 24 },
+    //     sm: { span: 4 },
+    //   },
+    //   wrapperCol: {
+    //     xs: { span: 24 },
+    //     sm: { span: 16 },
+    //   },
+    // };
+    // console.log(weeklyTree);
 
     return (
-      <Form className="editor-wrap" {...formLayout}>
+      // <Form className="editor-wrap" {...formLayout}>
+      <div className="editor-wrap">
+        <Icon
+          type="plus-circle"
+          theme="twoTone"
+          onClick={() => { this.onAdd(-1); }}
+        />
         {
-          weeklyList.map((item, index) => (
-            <Card
-              title={item.title}
-              key={index}
-              // tabList={article && article.map(item => ({ key: item.id, tab: item.text }))}
-              onAdd={() => {
-                this.onAdd(item.id);
-              }}
-            >
-              <Item label="模块名称">
-                <Input />
-              </Item>
-              <Item label="内容">
-                <TextArea />
-              </Item>
-            </Card>
-          ))
+          this.renderCardList(weeklyTree)
         }
-      </Form>
+      </div>
+      // </Form>
     );
   }
 }
