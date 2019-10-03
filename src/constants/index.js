@@ -1,26 +1,31 @@
 const Template = [
   {
-    key: 'core',
+    id: 'core',
+    parentId: -1,
     type: 'normal',
     title: '核心工作要点',
     children: [],
   }, {
-    key: 'malfunction',
+    id: 'malfunction',
+    parentId: -1,
     type: 'alarm',
     title: '本周问题/故障',
     children: [],
   }, {
-    key: 'detail',
+    id: 'detail',
+    parentId: -1,
     type: 'normal',
     title: '详细进展',
     children: [],
   }, {
-    key: 'growing',
+    id: 'growing',
+    parentId: -1,
     type: 'normal',
     title: '个人成长',
     children: [],
   }, {
-    key: 'plan',
+    id: 'plan',
+    parentId: -1,
     type: 'normal',
     title: '下周计划',
     children: [],

@@ -1,20 +1,20 @@
 import React, { PureComponent } from 'react';
 import { Layout } from 'antd';
-import Editor from '../Editor';
-// import styles from './index.less';
+import Weekly from '../Weekly';
 
-const { Content } = Layout;
+// const { Content } = Layout;
 
 export default class Home extends PureComponent {
   render() {
     return (
       <Layout>
+        <Weekly />
         {/* <Sider>
           Header
       </Sider> */}
-        <Content>
+        {/* <Content>
           <Editor />
-        </Content>
+        </Content> */}
       </Layout>
     );
   }

@@ -1,6 +1,9 @@
-import { action, observable } from 'mobx';
+import { action, computed, observable } from 'mobx';
+import Template from '_src/constants';
 
-const defaultWeeklyItem = {};
+const defaultWeeklyItem = {
+  title: '',
+};
 
 class WeeklyStore {
   /**
@@ -8,12 +11,19 @@ class WeeklyStore {
    */
 
   // 列表
-  @observable list = [];
+  @observable weeklyList = Template || [];
 
   // 更新内容
   @observable formInfo = {
     weekly: {}
   };
+
+  /**
+   * computed
+   */
+  @computed get weeklyTree() {
+    return this.renderTree(this.weeklyList) || [];
+  }
 
   /**
    * action
@@ -29,23 +39,25 @@ class WeeklyStore {
 
   // 新增列表项
   @action addWeeklyItem(parentId) {
-    this.list = [
-      ...this.list,
+    this.weeklyList = [
+      ...this.weeklyList,
       {
         ...defaultWeeklyItem,
-        parentId
+        id: `${parentId}_${this.weeklyList.length}`,
+        parentId,
+        children: []
       }
     ];
   }
 
   // 删除列表项
   @action deleteWeeklyItem(id) {
-    this.list = this.list.filter(item => item.id !== id) || [];
+    this.weeklyList = this.weeklyList.filter(item => item.id !== id) || [];
   }
 
   // 更新列表数据
   @action updateList(id) {
-    this.list = this.list.map((item) => {
+    this.weeklyList = this.weeklyList.map((item) => {
       if (item.id === id) {
         return { ...this.formInfo.weekly };
       }
@@ -55,7 +67,7 @@ class WeeklyStore {
 
   // 获取根节点
   @action getRoot() {
-    this.list.filter(item => item.id === -1);
+    return this.weeklyList.filter(item => item.parentId === -1);
   }
 
   // 包装数据成树形结构
@@ -63,7 +75,7 @@ class WeeklyStore {
     let result = [];
 
     // eslint-disable-next-line
-    this.getRoot(this.list).map((item) => {
+    this.getRoot().map((item) => {
       result = [
         ...result,
         {
@@ -81,7 +93,7 @@ class WeeklyStore {
     const children = [];
 
     // eslint-disable-next-line
-    this.list.map((item) => {
+    this.weeklyList.map((item) => {
       if (item.parentId === node.id) {
         children.push({
           ...item,

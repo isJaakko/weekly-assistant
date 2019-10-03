@@ -15,7 +15,8 @@ module.exports = {
     {
       "files": ["*.js"],
       "rules": {
-        // 'react': 'off'
+        'arrow-parens': 'off',
+        'arrow-body-style': 'off',
         'react/jsx-filename-extension': 'off',
         'react/no-array-index-key': 'off',
         'react/prop-types': 'off',

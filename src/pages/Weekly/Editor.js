@@ -2,7 +2,8 @@ import React from 'react';
 import { inject, observer } from 'mobx-react';
 import { Form, Input } from 'antd';
 import Card from '_src/components/Card';
-import Template from '_src/constants';
+// import Template from '_src/constants';
+import './Editor.less';
 
 const { TextArea } = Input;
 const { Item } = Form;
@@ -10,7 +11,14 @@ const { Item } = Form;
 @observer
 @inject('weeklyStore')
 class Editor extends React.Component {
+  onAdd = (parentId) => {
+    const { weeklyStore } = this.props;
+    weeklyStore.addWeeklyItem(parentId);
+  }
+
   render() {
+    const { weeklyStore } = this.props;
+    const { weeklyList } = weeklyStore;
     const formLayout = {
       layout: 'vertical',
       labelCol: {
@@ -22,16 +30,18 @@ class Editor extends React.Component {
         sm: { span: 16 },
       },
     };
+
+
     return (
-      <Form {...formLayout}>
+      <Form className="editor-wrap" {...formLayout}>
         {
-          Template.map(item => (
+          weeklyList.map((item, index) => (
             <Card
               title={item.title}
-              key={item.key}
-                // tabList={article && article.map(item => ({ key: item.id, tab: item.text }))}
+              key={index}
+              // tabList={article && article.map(item => ({ key: item.id, tab: item.text }))}
               onAdd={() => {
-
+                this.onAdd(item.id);
               }}
             >
               <Item label="模块名称">
