@@ -17,7 +17,10 @@ export default class Preview extends React.Component {
             <div
               className={
                 classNames(
-                  `template-title-level-${tree.level}`
+                  `template-title-level-${tree.level}`,
+                  {
+                    'template-alarm-title-level-1': tree.level === 1 && tree.type === 'alarm'
+                  }
                 )
               }
             >
