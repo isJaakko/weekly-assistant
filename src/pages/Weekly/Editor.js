@@ -52,6 +52,10 @@ class Editor extends React.Component {
         <Card
           title={(
             <Input
+              // value={item.level === 3
+              //   ? `${(index + 1)}、 ${item.title}；`
+              //   : item.title
+              // }
               value={item.title}
               onChange={(e) => {
                 this.handleChange(e, { key: 'title', id: item.id });
@@ -65,15 +69,14 @@ class Editor extends React.Component {
           onDelete={() => {
             this.onDelete(item.id);
           }}
-          bodyStyle={{ display: 'none' }}
+          bordered={false}
+          headStyle={{
+            border: 'none'
+          }}
+          bodyStyle={{
+            display: 'none'
+          }}
         />
-        //   <Input
-        //     value={item.title}
-        //     onChange={(e) => {
-        //       this.handleChange(e, { key: 'title', id: item.id });
-        //     }}
-        //   />
-        // </Card>
       );
     });
   }

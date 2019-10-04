@@ -4,7 +4,6 @@ import { globalMessage } from '_src/utils';
 
 const defaultWeeklyItem = {
   title: 'new item',
-  content: '',
 };
 const MAX_LEVEL = 2;
 
@@ -47,7 +46,7 @@ class WeeklyStore {
     const parentNode = this.getParentNode(parentId);
     const { level } = parentNode;
     if (level > MAX_LEVEL) {
-      return globalMessage('warning', '只允许添加两级标题');
+      return globalMessage('warning', '无法添加下级');
     }
 
     this.weeklyList = [
@@ -57,7 +56,7 @@ class WeeklyStore {
         id: `${parentId}_${this.weeklyList.length}`,
         parentId,
         level: level + 1,
-        children: []
+        children: [],
       }
     ];
   }
@@ -90,6 +89,11 @@ class WeeklyStore {
     return arr[0];
   }
 
+  // 获取子节点
+  @action getChildren(id) {
+    return this.weeklyList.filter(item => item.parentId === id);
+  }
+
   // 获取根节点
   @action getRoot() {
     return this.weeklyList.filter(item => item.parentId === -1);
@@ -106,7 +110,7 @@ class WeeklyStore {
         {
           ...item,
           key: item.id,
-          children: this.getChildren(item)
+          children: this.renderChildren(item)
         }
       ];
     });
@@ -115,7 +119,7 @@ class WeeklyStore {
   }
 
   // 配合 renderTree 使用
-  @action getChildren(node) {
+  @action renderChildren(node) {
     const children = [];
 
     // eslint-disable-next-line
@@ -124,7 +128,7 @@ class WeeklyStore {
         children.push({
           ...item,
           key: item.id,
-          children: this.getChildren(item)
+          children: this.renderChildren(item)
         });
       }
     });

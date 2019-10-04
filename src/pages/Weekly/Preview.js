@@ -4,11 +4,13 @@ import { inject, observer } from 'mobx-react';
 import classNames from 'classnames';
 // import template from '_src/constants';
 
+const OREDR_LEVEL = 3;
+
 @inject('weeklyStore')
 @observer
 export default class Preview extends React.Component {
   renderTreeList = (treeList) => {
-    return treeList.map((tree) => {
+    return treeList.map((tree, index, array) => {
       if (tree.children.length) {
         return (
           <div key={tree.id}>
@@ -38,9 +40,12 @@ export default class Preview extends React.Component {
                 }
               )
             }
-          >{tree.title}
+          >
+            {tree.level === OREDR_LEVEL
+              ? `${index + 1}、${tree.title}${index < array.length - 1 ? '；' : '。'}`
+              : tree.title}
+
           </div>
-          <span>{tree.content}</span>
         </div>
       );
     });
