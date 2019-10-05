@@ -2,6 +2,7 @@ import React from 'react';
 import { inject, observer } from 'mobx-react';
 // import { Tree } from 'antd';
 import classNames from 'classnames';
+import { Button } from 'antd';
 // import template from '_src/constants';
 
 const OREDR_LEVEL = 3;
@@ -60,11 +61,31 @@ export default class Preview extends React.Component {
 
     return (
       <div className="preview-wrap">
-        {/* <Tree treeData={weeklyTree} defaultExpandAll /> */}
-        <br />
-        {
-          this.renderTreeList(weeklyTree)
-        }
+        <div
+          className="preview-text"
+          ref={ref => { this.ref = ref; }}
+        >
+          {
+            this.renderTreeList(weeklyTree)
+          }
+        </div>
+        <Button
+          type="primary"
+          onClick={() => {
+            // console.log(document.querySelector('.preview-text'));
+            const element = document.querySelector('.preview-text');
+            const range = document.createRange();
+            range.selectNode(element); // 设定range包含的节点对象
+
+            /* 窗口的selection对象，表示用户选择的文本 */
+            const selection = window.getSelection();
+            if (selection.rangeCount > 0) selection.removeAllRanges(); // 将已经包含的已选择的对象清除掉
+            selection.addRange(range); // 将要复制的区域的range对象添加到selection对象中
+
+            document.execCommand('copy');
+          }}
+        >一键复制
+        </Button>
       </div>
     );
   }
