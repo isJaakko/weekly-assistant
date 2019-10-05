@@ -1,40 +1,47 @@
+const rootId = -1;
+
 const Template = [
   {
     id: 'core',
-    parentId: -1,
+    parentId: rootId,
     level: 1,
     type: 'normal',
     title: '核心工作要点',
+    show: true,
     children: [],
   }, {
     id: 'malfunction',
-    parentId: -1,
+    parentId: rootId,
     level: 1,
     type: 'alarm',
     title: '本周问题/故障',
+    show: true,
     children: [],
   }, {
     id: 'detail',
-    parentId: -1,
+    parentId: rootId,
     level: 1,
     type: 'normal',
     title: '详细进展',
+    show: true,
     children: [],
   }, {
     id: 'growing',
-    parentId: -1,
+    parentId: rootId,
     level: 1,
     type: 'normal',
     title: '个人成长',
+    show: true,
     children: [],
   }, {
     id: 'plan',
-    parentId: -1,
+    parentId: rootId,
     level: 1,
     type: 'normal',
     title: '下周计划',
+    show: true,
     children: [],
   }
 ];
 
-export default Template;
+export default { rootId, Template };

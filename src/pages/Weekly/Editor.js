@@ -3,11 +3,10 @@ import { inject, observer } from 'mobx-react';
 import { Form, Input, Icon } from 'antd';
 import Card from '_src/components/Card';
 import { globalMessage } from '_src/utils';
-// import Template from '_src/constants';
+import constants from '_src/constants';
 import './Editor.less';
 
-// const { TextArea } = Input;
-// const { Item } = Form;
+const { rootId } = constants;
 
 @inject('weeklyStore')
 @observer
@@ -35,8 +34,23 @@ class Editor extends React.Component {
       if (item.children.length) {
         return (
           <Card
-            title={item.title}
+            title={(
+              <Input
+                value={item.title}
+                onChange={(e) => {
+                  this.handleChange(e, { key: 'title', id: item.id });
+                }}
+                disabled={!item.show}
+              />
+            )}
             key={item.key}
+            // checkedText="显示文本"
+            checked={item.show}
+            onChange={(e) => {
+              const { weeklyStore } = this.props;
+              const { checked } = e.target;
+              weeklyStore.updateFormInfo('weekly', 'show', checked, item.id);
+            }}
             onAdd={() => {
               this.onAdd(item.id);
             }}
@@ -52,10 +66,6 @@ class Editor extends React.Component {
         <Card
           title={(
             <Input
-              // value={item.level === 3
-              //   ? `${(index + 1)}、 ${item.title}；`
-              //   : item.title
-              // }
               value={item.title}
               onChange={(e) => {
                 this.handleChange(e, { key: 'title', id: item.id });
@@ -63,6 +73,13 @@ class Editor extends React.Component {
             />
           )}
           key={item.key}
+          // checkedText="显示文本"
+          checked={item.show}
+          onChange={(e) => {
+            const { weeklyStore } = this.props;
+            const { checked } = e.target;
+            weeklyStore.updateFormInfo('weekly', 'show', checked, item.id);
+          }}
           onAdd={() => {
             this.onAdd(item.id);
           }}
@@ -84,32 +101,18 @@ class Editor extends React.Component {
   render() {
     const { weeklyStore } = this.props;
     const { weeklyTree } = weeklyStore;
-    // const formLayout = {
-    //   layout: 'vertical',
-    //   labelCol: {
-    //     xs: { span: 24 },
-    //     sm: { span: 4 },
-    //   },
-    //   wrapperCol: {
-    //     xs: { span: 24 },
-    //     sm: { span: 16 },
-    //   },
-    // };
-    // console.log(weeklyTree);
 
     return (
-      // <Form className="editor-wrap" {...formLayout}>
       <div className="editor-wrap">
         <Icon
           type="plus-circle"
           theme="twoTone"
-          onClick={() => { this.onAdd(-1); }}
+          onClick={() => { this.onAdd(rootId); }}
         />
         {
           this.renderCardList(weeklyTree)
         }
       </div>
-      // </Form>
     );
   }
 }

@@ -1,18 +1,25 @@
 import React from 'react';
-import { Card, Icon } from 'antd';
+import { Card, Icon, Checkbox } from 'antd';
 import './index.less';
 
 export default class ArticleCard extends React.PureComponent {
   render() {
     const {
-      title, children, onAdd, onDelete, ...restProps
+      children,
+      checked, onChange, checkedText,
+      onAdd, onDelete, ...restProps
     } = this.props;
     return (
       <Card
-        title={title}
         className="card-wrap"
         extra={(
           <React.Fragment>
+            <Checkbox
+              checked={checked}
+              onChange={typeof onChange === 'function' ? onChange : (() => { })}
+            >
+              {checkedText || '显示'}
+            </Checkbox>
             <Icon
               type="minus-circle"
               theme="twoTone"

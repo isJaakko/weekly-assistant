@@ -24,7 +24,7 @@ export default class Preview extends React.Component {
                 )
               }
             >
-              {tree.title}
+              {tree.show && tree.title}
             </div>
             {this.renderTreeList(tree.children)}
           </div>
@@ -44,9 +44,9 @@ export default class Preview extends React.Component {
               )
             }
           >
-            {tree.level === OREDR_LEVEL
+            {tree.show && (tree.level === OREDR_LEVEL
               ? `${index + 1}、${tree.title}${index < array.length - 1 ? '；' : '。'}`
-              : tree.title}
+              : tree.title)}
 
           </div>
         </div>

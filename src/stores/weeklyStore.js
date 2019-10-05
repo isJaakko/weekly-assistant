@@ -1,6 +1,8 @@
 import { action, computed, observable } from 'mobx';
-import Template from '_src/constants';
+import constants from '_src/constants';
 import { globalMessage } from '_src/utils';
+
+const { rootId, Template } = constants;
 
 const defaultWeeklyItem = {
   title: 'new item',
@@ -43,7 +45,7 @@ class WeeklyStore {
   // 新增列表项
   // eslint-disable-next-line
   @action addWeeklyItem(parentId) {
-    const parentNode = this.getParentNode(parentId);
+    const parentNode = this.getParentNode(parentId) || { level: rootId + 1 };
     const { level } = parentNode;
     if (level > MAX_LEVEL) {
       return globalMessage('warning', '无法添加下级');
@@ -56,6 +58,7 @@ class WeeklyStore {
         id: `${parentId}_${this.weeklyList.length}`,
         parentId,
         level: level + 1,
+        show: true,
         children: [],
       }
     ];
@@ -80,11 +83,11 @@ class WeeklyStore {
     });
   }
 
-  // 获取父节点
+  // 获取父节点：若该节点本身为根节点，则返回-1
   @action getParentNode(parentId) {
     const arr = this.weeklyList.filter(item => item.id === parentId);
     if (arr.length === 0) {
-      return {};
+      return false;
     }
     return arr[0];
   }
@@ -96,7 +99,7 @@ class WeeklyStore {
 
   // 获取根节点
   @action getRoot() {
-    return this.weeklyList.filter(item => item.parentId === -1);
+    return this.weeklyList.filter(item => item.parentId === rootId);
   }
 
   // 包装数据成树形结构
