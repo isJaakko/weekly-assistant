@@ -1,9 +1,8 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-// import { Tree } from 'antd';
 import classNames from 'classnames';
 import { Button } from 'antd';
-// import template from '_src/constants';
+import { globalMessage } from '_src/utils';
 
 const OREDR_LEVEL = 3;
 
@@ -48,7 +47,8 @@ export default class Preview extends React.Component {
             {tree.show && (tree.level === OREDR_LEVEL
               ? `${index + 1}、${tree.title}${index < array.length - 1 ? '；' : '。'}`
               : tree.title)}
-
+            {index === array.length - 1 ? (<br/>): null}
+            <br/>
           </div>
         </div>
       );
@@ -83,6 +83,7 @@ export default class Preview extends React.Component {
             selection.addRange(range); // 将要复制的区域的range对象添加到selection对象中
 
             document.execCommand('copy');
+            globalMessage('success', '复制成功！');
           }}
         >一键复制
         </Button>

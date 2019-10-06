@@ -44,7 +44,7 @@ class Editor extends React.Component {
               />
             )}
             key={item.key}
-            // checkedText="显示文本"
+            checkedText={`显示${item.level}级文本`}
             checked={item.show}
             onChange={(e) => {
               const { weeklyStore } = this.props;
@@ -73,7 +73,7 @@ class Editor extends React.Component {
             />
           )}
           key={item.key}
-          // checkedText="显示文本"
+          checkedText={`显示${item.level}级文本`}
           checked={item.show}
           onChange={(e) => {
             const { weeklyStore } = this.props;

@@ -5,7 +5,7 @@ import { globalMessage } from '_src/utils';
 const { rootId, Template } = constants;
 
 const defaultWeeklyItem = {
-  title: 'new item',
+  title: '',
 };
 const MAX_LEVEL = 2;
 
