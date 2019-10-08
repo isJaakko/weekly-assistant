@@ -47,7 +47,7 @@ export default class Preview extends React.Component {
             {tree.show && (tree.level === OREDR_LEVEL
               ? `${index + 1}、${tree.title}${index < array.length - 1 ? '；' : '。'}`
               : tree.title)}
-            {index === array.length - 1 ? (<br/>): null}
+            {index === (array.length - 1) ? <br /> : null}
             <br/>
           </div>
         </div>
@@ -71,8 +71,7 @@ export default class Preview extends React.Component {
         </div>
         <Button
           type="primary"
-          onClick={() => {
-            // console.log(document.querySelector('.preview-text'));
+          onClick={(e) => {
             const element = document.querySelector('.preview-text');
             const range = document.createRange();
             range.selectNode(element); // 设定range包含的节点对象
@@ -85,7 +84,8 @@ export default class Preview extends React.Component {
             document.execCommand('copy');
             globalMessage('success', '复制成功！');
           }}
-        >一键复制
+        >
+          一键复制
         </Button>
       </div>
     );
