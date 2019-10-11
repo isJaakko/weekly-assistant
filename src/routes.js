@@ -9,12 +9,13 @@ import Loadable from 'react-loadable';
 import Loading from './components/Loading';
 import App from './pages/App';
 
+const routerPrefix = '/weekly-assistant';
 const delay = 250;
 const timeout = 10000;
 
 const routeMap = [
   {
-    path: '/',
+    path: `${routerPrefix}/`,
     component: './pages/Home',
     exact: true
   },
