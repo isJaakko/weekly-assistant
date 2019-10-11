@@ -1,24 +1,11 @@
 # weekly-assistant
-一键生成周报
+周报格式自动化
 
-## 一、创建项目结构
+## 动机
+- 对周报格式要求较高，精确到序号、标点符号
+- 手动调整格式比较麻烦
+- 写完后需要反复检查
 
-### 创建项目
-```
-mkdir react-mobx-app
-```
-初始化 `package.json` 文件
-```
-npm init -y
-```
+## 成果
 
-创建 src 目录，用来存放我们编写的代码 创建 public 目录，用来存放公共的文件 创建 webpack 目录，用来存放 webpack 配置文件
-```
-mkdir src
-
-mkdir public
-
-mkdir webpack
-```
-
-创建
+## 还存在的问题

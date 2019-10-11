@@ -74,6 +74,11 @@ module.exports = {
       filename: 'index.html',
       template: path.resolve(__dirname, '../public/index.html')
     }),
+    new HtmlWebpackPlugin({
+      filename: '404.html',
+      inject: false,
+      template: path.resolve(__dirname, '../public/404.html')
+    }),
     new CleanWebpackPlugin()
   ]
 };
