@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --mode development --config webpack/webpack.config.dev.js --open"
+    "dev": "webpack-dev-server --mode development --config webpack/webpack.config.dev.js --open",
+    "build": "webpack --config webpack/webpack.config.prod.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/isJaakko/weekly-assistant/issues"
   },
-  "homepage": "https://yinjunjie.xyz/weekly-assistant",
+  "homepage": "https://github.com/isJaakko/weekly-assistant#readme",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
