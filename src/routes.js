@@ -18,6 +18,11 @@ const routeMap = [
     component: './pages/Home',
     exact: true
   },
+  {
+    // path: '/notMatch',
+    component: './pages/NotMatch',
+    exact: true
+  },
 ];
 
 export default (
