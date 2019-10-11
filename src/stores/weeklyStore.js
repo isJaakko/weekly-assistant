@@ -2,12 +2,11 @@ import { action, computed, observable } from 'mobx';
 import constants from '_src/constants';
 import { globalMessage } from '_src/utils';
 
-const { rootId, Template } = constants;
+const { rootId, MAX_LEVEL, Template } = constants;
 
 const defaultWeeklyItem = {
   title: '',
 };
-const MAX_LEVEL = 2;
 
 class WeeklyStore {
   /**

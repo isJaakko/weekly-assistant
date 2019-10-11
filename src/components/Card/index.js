@@ -1,12 +1,15 @@
 import React from 'react';
 import { Card, Icon, Checkbox } from 'antd';
+import constants from '_src/constants';
 import './index.less';
+
+const { MAX_LEVEL } = constants;
 
 export default class ArticleCard extends React.PureComponent {
   render() {
     const {
       children,
-      checked, onChange, checkedText,
+      level, checked, onChange, checkedText,
       onAdd, onDelete, ...restProps
     } = this.props;
     return (
@@ -25,11 +28,16 @@ export default class ArticleCard extends React.PureComponent {
               theme="twoTone"
               onClick={typeof onDelete === 'function' ? onDelete : (() => { })}
             />
-            <Icon
-              type="plus-circle"
-              theme="twoTone"
-              onClick={typeof onAdd === 'function' ? onAdd : (() => { })}
-            />
+            {
+              level <= MAX_LEVEL
+                ? (
+                  <Icon
+                    type="plus-circle"
+                    theme="twoTone"
+                    onClick={typeof onAdd === 'function' ? onAdd : (() => { })}
+                  />
+                ) : null
+            }
           </React.Fragment>
         )}
         {...restProps}

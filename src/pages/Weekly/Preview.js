@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react';
 import classNames from 'classnames';
 import { Button } from 'antd';
 import { globalMessage } from '_src/utils';
+import './Preview.less';
 
 const OREDR_LEVEL = 3;
 

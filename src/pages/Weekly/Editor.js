@@ -44,6 +44,7 @@ class Editor extends React.Component {
               />
             )}
             key={item.key}
+            level={item.level}
             checkedText={`显示${item.level}级文本`}
             checked={item.show}
             onChange={(e) => {
@@ -73,6 +74,7 @@ class Editor extends React.Component {
             />
           )}
           key={item.key}
+          level={item.level}
           checkedText={`显示${item.level}级文本`}
           checked={item.show}
           onChange={(e) => {
