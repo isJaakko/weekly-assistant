@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const src = '../src';
-const dist = '../docs';
+const dist = '../dist';
 
 module.exports = {
   entry: path.resolve(__dirname, src),

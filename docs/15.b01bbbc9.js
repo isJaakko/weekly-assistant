@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{152:function(o,n,i){var p=i(160);"string"==typeof p&&(p=[[o.i,p,""]]);var r={hmr:!0,transform:void 0,insertInto:void 0};i(45)(p,r);p.locals&&(o.exports=p.locals)},160:function(o,n,i){(o.exports=i(44)(!1)).push([o.i,".editor-wrap {\n  width: 720px;\n}\n",""])}}]);
