@@ -48,7 +48,7 @@ export default class Preview extends React.Component {
               ? `${index + 1}、${tree.title}${index < array.length - 1 ? '；' : '。'}`
               : tree.title)}
             {index === (array.length - 1) ? <br /> : null}
-            <br/>
+            <br />
           </div>
         </div>
       );
@@ -71,7 +71,7 @@ export default class Preview extends React.Component {
         </div>
         <Button
           type="primary"
-          onClick={(e) => {
+          onClick={() => {
             const element = document.querySelector('.preview-text');
             const range = document.createRange();
             range.selectNode(element); // 设定range包含的节点对象

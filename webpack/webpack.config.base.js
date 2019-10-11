@@ -3,11 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const src = '../src';
+const dist = '../docs';
 
 module.exports = {
   entry: path.resolve(__dirname, src),
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, dist),
     filename: '[name].[hash:8].js'
   },
   module: {
