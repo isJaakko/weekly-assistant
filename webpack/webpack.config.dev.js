@@ -19,7 +19,7 @@ module.exports = Object.assign(base, {
     port: confg.dev.port,
     historyApiFallback: {
       rewrites: [
-        { from: /^\/$/, to: '/index.html' },
+        { from: /^\/*$/, to: '/index.html' },
       ]
     },
   },

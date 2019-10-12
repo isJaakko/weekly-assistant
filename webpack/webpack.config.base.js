@@ -8,8 +8,10 @@ const dist = '../dist';
 module.exports = {
   entry: path.resolve(__dirname, src),
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, dist),
-    filename: '[name].[hash:8].js'
+    filename: '[name]/index.js',
+    chunkFilename: 'common/[name]/[name].js',
   },
   module: {
     rules: [{
@@ -72,7 +74,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(__dirname, '../public/index.html')
+      template: path.resolve(__dirname, '../public/index.html'),
     }),
     new HtmlWebpackPlugin({
       filename: '404.html',

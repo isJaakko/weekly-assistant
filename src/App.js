@@ -1,16 +1,21 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 import base from '_src/constants/base';
-import SubRoutes from './subRoutes';
 
 const { Header, Sider, Content } = Layout;
 const { siteTitle } = base;
 
+@withRouter
 export default class App extends React.Component {
   state = {
     collapsed: true,
     currentPath: '/'
   };
+
+  componentDidMount() {
+    this.getMenuSelectKeys();
+  }
 
   getMenuSelectKeys = () => {
     const { match: { path } } = this.props;
@@ -51,7 +56,7 @@ export default class App extends React.Component {
             </Menu>
           </Sider>
           <Content>
-            {SubRoutes}
+            {this.props.children}
           </Content>
         </Layout>
       </Layout>
