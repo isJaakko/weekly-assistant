@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{106:function(t,e,n){"use strict";n.r(e),e.default=[{name:"home",path:"/"},{name:"test",path:"/test"}]}}]);

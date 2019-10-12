@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[19],{167:function(o,n,a){var i=a(318);"string"==typeof i&&(i=[[o.i,i,""]]);var s={hmr:!0,transform:void 0,insertInto:void 0};a(50)(i,s);i.locals&&(o.exports=i.locals)},318:function(o,n,a){(o.exports=a(49)(!1)).push([o.i,".main {\n  color: #aaa;\n}\n",""])}}]);
