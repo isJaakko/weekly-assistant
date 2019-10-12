@@ -1,12 +1,17 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Form, Input, Icon } from 'antd';
+import {
+  Form, Input, Button, Icon, Tooltip
+} from 'antd';
 import Card from '_src/components/Card';
-import { globalMessage } from '_src/utils';
 import constants from '_src/constants';
+import base from '_src/constants/base';
+import { globalMessage } from '_src/utils';
 import './Editor.less';
 
+const { TextArea } = Input;
 const { rootId } = constants;
+const { weeklyInstruction } = base;
 
 @inject('weeklyStore')
 @observer
@@ -23,10 +28,13 @@ class Editor extends React.Component {
 
   handleChange = (e, { key, id }) => {
     const { weeklyStore } = this.props;
-    // const { updateFormInfo } = weeklyStore;
     const { value } = e.target;
 
     weeklyStore.updateFormInfo('weekly', key, value, id);
+  }
+
+  addRootNode = () => {
+    this.onAdd(rootId);
   }
 
   renderCardList = (cardList) => {
@@ -35,7 +43,8 @@ class Editor extends React.Component {
         return (
           <Card
             title={(
-              <Input
+              <TextArea
+                autosize={{ minRows: 1, maxRows: 6 }}
                 value={item.title}
                 onChange={(e) => {
                   this.handleChange(e, { key: 'title', id: item.id });
@@ -66,7 +75,8 @@ class Editor extends React.Component {
       return (
         <Card
           title={(
-            <Input
+            <TextArea
+              autosize={{ minRows: 1, maxRows: 6 }}
               value={item.title}
               onChange={(e) => {
                 this.handleChange(e, { key: 'title', id: item.id });
@@ -106,11 +116,19 @@ class Editor extends React.Component {
 
     return (
       <div className="editor-wrap">
-        <Icon
-          type="plus-circle"
-          theme="twoTone"
-          onClick={() => { this.onAdd(rootId); }}
-        />
+        <Button
+          type="primary"
+          className="add-root-node-btn"
+          onClick={this.addRootNode}
+        >
+          添加一级标题
+        </Button>
+        <Tooltip
+          trigger="hover"
+          title={weeklyInstruction}
+        >
+          <Icon type="question-circle" />
+        </Tooltip>
         {
           this.renderCardList(weeklyTree)
         }

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Card, Icon, Checkbox } from 'antd';
+import {
+  Card, Button
+} from 'antd';
 import constants from '_src/constants';
 import './index.less';
 
@@ -17,25 +19,37 @@ export default class ArticleCard extends React.PureComponent {
         className="card-wrap"
         extra={(
           <React.Fragment>
-            <Checkbox
+            {/* <Checkbox
               checked={checked}
               onChange={typeof onChange === 'function' ? onChange : (() => { })}
             >
               {checkedText || '显示'}
-            </Checkbox>
-            <Icon
+            </Checkbox> */}
+            <Button
+              type="danger"
+              onClick={typeof onDelete === 'function' ? onDelete : (() => { })}
+            >
+              删除
+            </Button>
+            {/* <Icon
               type="minus-circle"
               theme="twoTone"
               onClick={typeof onDelete === 'function' ? onDelete : (() => { })}
-            />
+            /> */}
             {
               level <= MAX_LEVEL
                 ? (
-                  <Icon
-                    type="plus-circle"
-                    theme="twoTone"
+                  // <Icon
+                  //   type="plus-circle"
+                  //   theme="twoTone"
+                  //   onClick={typeof onAdd === 'function' ? onAdd : (() => { })}
+                  // />
+                  <Button
+                    type="primary"
                     onClick={typeof onAdd === 'function' ? onAdd : (() => { })}
-                  />
+                  >
+                    添加下级
+                  </Button>
                 ) : null
             }
           </React.Fragment>

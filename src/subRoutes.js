@@ -10,14 +10,18 @@ const timeout = 10000;
 const routeMap = [
   {
     path: '/',
-    component: './App',
+    component: './pages/Home',
     exact: true
   },
   {
     path: `${routerPrefix}/`,
-    component: './App',
+    component: './pages/Home',
     exact: true
-  }
+  },
+  {
+    component: './pages/NotMatch',
+    exact: true
+  },
 ];
 
 export default (
@@ -29,13 +33,13 @@ export default (
           path={item.path}
           exact={item.exact}
           component={
-            Loadable({
-              loader: () => import(`${item.component}`),
-              loading: Loading,
-              delay,
-              timeout
-            })
-          }
+              Loadable({
+                loader: () => import(`${item.component}`),
+                loading: Loading,
+                delay,
+                timeout
+              })
+            }
         />
       ))}
     </Switch>
