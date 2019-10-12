@@ -10,8 +10,8 @@ module.exports = {
   output: {
     publicPath: '/',
     path: path.resolve(__dirname, dist),
-    filename: '[name]/index.js',
-    chunkFilename: 'common/[name]/[name].js',
+    filename: '[name].[hash:8].js',
+    // chunkFilename: 'common/[name]/[name].js',
   },
   module: {
     rules: [{
