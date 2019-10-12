@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{73:function(n,e,t){"use strict";t.r(e),t.d(e,"default",function(){return u});var i=t(1),s=t.n(i);function u(){return s.a.createElement("h1",null,"...Opps!Something is missing!")}}}]);
