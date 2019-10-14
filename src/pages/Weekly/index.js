@@ -1,6 +1,5 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Divider } from 'antd';
 import Editor from './Editor';
 import Preview from './Preview';
 import './index.less';
@@ -25,7 +24,6 @@ export default class Weekly extends React.Component {
     return (
       <div className="flex weekly-wrap">
         <Editor />
-        <Divider type="vertical" />
         <Preview />
       </div>
     );

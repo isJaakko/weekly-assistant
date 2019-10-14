@@ -132,7 +132,7 @@ class Editor extends React.Component {
           添加一级标题
         </Button>
         <Popconfirm
-          title="确认清除所有内容？"
+          title="当前操作将清除所有已写内容，确认继续？"
           onConfirm={this.clearHistory}
           okText="确认"
           cancelText="取消"
@@ -141,7 +141,7 @@ class Editor extends React.Component {
             type="danger"
             className="add-root-node-btn"
           >
-            清除
+            初始化
           </Button>
         </Popconfirm>
         <Tooltip
