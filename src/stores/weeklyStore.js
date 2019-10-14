@@ -1,11 +1,14 @@
 import { action, computed, observable } from 'mobx';
 import constants from '_src/constants';
 import { globalMessage } from '_src/utils';
+import Storage from '_src/utils/storage';
 
 const { rootId, MAX_LEVEL, Template } = constants;
 
 const defaultWeeklyItem = {
   title: '',
+  show: true,
+  children: [],
 };
 
 class WeeklyStore {
@@ -14,7 +17,7 @@ class WeeklyStore {
    */
 
   // 列表
-  @observable weeklyList = Template || [];
+  @observable weeklyList = Storage.get('weeklyList') || Template;
 
   // 更新内容
   @observable formInfo = {
@@ -25,12 +28,17 @@ class WeeklyStore {
    * computed
    */
   @computed get weeklyTree() {
-    return this.renderTree(this.weeklyList) || [];
+    Storage.set('weeklyList', this.weeklyList);
+    return this.renderTree() || [];
   }
 
   /**
    * action
    */
+  @action clearWeeklyList() {
+    this.weeklyList = Template;
+    Storage.set('weeklyList', this.weeklyList);
+  }
 
   // 更新表单数据
   @action updateFormInfo(object, key, value, id) {
@@ -42,7 +50,6 @@ class WeeklyStore {
   }
 
   // 新增列表项
-  // eslint-disable-next-line
   @action addWeeklyItem(parentId) {
     const parentNode = this.getParentNode(parentId) || { level: rootId + 1 };
     const { level } = parentNode;
@@ -57,8 +64,6 @@ class WeeklyStore {
         id: `${parentId}_${this.weeklyList.length}`,
         parentId,
         level: level + 1,
-        show: true,
-        children: [],
       }
     ];
   }

@@ -1,12 +1,13 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
 import {
-  Form, Input, Button, Icon, Tooltip
+  Form, Input, Button, Icon, Tooltip, Popconfirm
 } from 'antd';
 import Card from '_src/components/Card';
 import constants from '_src/constants';
 import base from '_src/constants/base';
 import { globalMessage } from '_src/utils';
+import Storage from '_src/utils/storage';
 import './Editor.less';
 
 const { TextArea } = Input;
@@ -35,6 +36,13 @@ class Editor extends React.Component {
 
   addRootNode = () => {
     this.onAdd(rootId);
+  }
+
+  clearHistory = () => {
+    const { weeklyStore } = this.props;
+
+    Storage.remove('weeklyList');
+    weeklyStore.clearWeeklyList();
   }
 
   renderCardList = (cardList) => {
@@ -123,6 +131,19 @@ class Editor extends React.Component {
         >
           添加一级标题
         </Button>
+        <Popconfirm
+          title="确认清除所有内容？"
+          onConfirm={this.clearHistory}
+          okText="确认"
+          cancelText="取消"
+        >
+          <Button
+            type="danger"
+            className="add-root-node-btn"
+          >
+            清除
+          </Button>
+        </Popconfirm>
         <Tooltip
           trigger="hover"
           title={weeklyInstruction}

@@ -5,8 +5,12 @@
 @font18: 18px;
 
 // 颜色
+@black: #000;
 @common-blue: #0070C0;
 @warning-red: #FF0000;
+@light-black: rgba(0, 0, 0, 0.4);
+@common-black: rgba(0, 0, 0, 0.6);
+@weight-black: rgba(0, 0, 0, 0.8);
 
 // 方法
 .font(@fontSize, @color) {
@@ -18,6 +22,7 @@
   font-size: @font18;
   color: @color;
 }
+
 .template-subtitle() {
   font-size: @font16;
   font-weight: bold;

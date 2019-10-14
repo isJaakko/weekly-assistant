@@ -15,6 +15,7 @@ module.exports = {
     {
       "files": ["*.js"],
       "rules": {
+        'consistent-return': 'off',
         'arrow-parens': 'off',
         'arrow-body-style': 'off',
         'import/no-extraneous-dependencies': 'off',
@@ -36,7 +37,7 @@ module.exports = {
       alias: {
         map: [
           ['_src', path.resolve(__dirname, './src')],
-          ['_common', path.resolve(__dirname, './src/common')],
+          // ['_common', path.resolve(__dirname, './src/common')],
         ],
         extensions: ['.js', '.less', '.jsx']
       }
