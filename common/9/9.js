@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{127:function(o,n,s){var i=s(267);"string"==typeof i&&(i=[[o.i,i,""]]);var p={hmr:!0,transform:void 0,insertInto:void 0};s(31)(i,p);i.locals&&(o.exports=i.locals)},267:function(o,n,s){(o.exports=s(30)(!1)).push([o.i,"",""])}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{79:function(n,e,t){"use strict";t.r(e),t.d(e,"default",function(){return u});var i=t(1),s=t.n(i);function u(){return s.a.createElement("h1",null,"...Opps!Something is missing!")}}}]);
