@@ -50,6 +50,7 @@ class Editor extends React.Component {
       if (item.children.length) {
         return (
           <Card
+            bordered={false}
             title={(
               <TextArea
                 autosize={{ minRows: 1, maxRows: 6 }}
@@ -82,6 +83,7 @@ class Editor extends React.Component {
       }
       return (
         <Card
+          bordered={false}
           title={(
             <TextArea
               autosize={{ minRows: 1, maxRows: 6 }}
@@ -106,7 +108,6 @@ class Editor extends React.Component {
           onDelete={() => {
             this.onDelete(item.id);
           }}
-          bordered={false}
           headStyle={{
             border: 'none'
           }}

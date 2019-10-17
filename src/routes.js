@@ -23,6 +23,16 @@ const routeMap = [
     exact: true
   },
   {
+    path: '/markdown',
+    component: './pages/MarkdownWeekly',
+    exact: true
+  },
+  {
+    path: `${routerPrefix}/markdown`,
+    component: './pages/MarkdownWeekly',
+    exact: true
+  },
+  {
     component: './pages/NotMatch',
     exact: true
   }

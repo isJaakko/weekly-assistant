@@ -3,6 +3,28 @@
   height: calc(100vh - 64px);
   overflow-y: scroll;
   padding: 10px;
+  background-color: #FFF;
+  border-right: 1px solid #DDD;
+
+  .ant-card {
+    .ant-card-head {
+      border: none;
+
+      .ant-card-head-title {
+        padding: 0;
+      }
+
+      .ant-card-extra {
+        padding: 0;
+      }
+    }
+
+    .ant-card-body {
+      padding: 0;
+      padding-left: 24px;
+      border: none;
+    }
+  }
 
   &::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -21,7 +43,7 @@
   }
 
   .anticon-question-circle {
-    :hover{
+    :hover {
       cursor: pointer;
     }
   }
