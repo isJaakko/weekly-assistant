@@ -9,7 +9,6 @@ require('codemirror/theme/neat.css');
 require('codemirror/mode/xml/xml.js');
 require('codemirror/mode/javascript/javascript.js');
 
-
 @inject('markdownStore')
 @observer
 export default class CodeMirrorEditor extends React.Component {

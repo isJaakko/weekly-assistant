@@ -11,6 +11,14 @@ class MarkdownStore {
    */
   @observable mdText = Storage.get('mdText') || MarkdownTemplate;
 
+  /**
+ * action
+ */
+  @action clearWeeklyList() {
+    this.mdText = MarkdownTemplate;
+    Storage.set('mdText', this.mdText);
+  }
+
   // 更新 Markdown
   @action updateMdText(text) {
     this.mdText = text;
