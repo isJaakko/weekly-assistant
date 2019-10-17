@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import Editor from './Editor';
+import Editor from './CodeMirror';
 import Preview from './Preview';
 import './index.less';
 

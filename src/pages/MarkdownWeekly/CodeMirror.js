@@ -1,6 +1,7 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
 import { Controlled as CodeMirror } from 'react-codemirror2';
+import './Editor.less';
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/theme/material.css');
@@ -22,11 +23,12 @@ export default class CodeMirrorEditor extends React.Component {
     const { mdText } = markdownStore;
 
     return (
-      <div>
+      <div
+        className="markdown-editor-wrap"
+      >
         <CodeMirror
           value={mdText}
           options={{
-            mode: 'xml',
             theme: 'material',
             lineNumbers: true
           }}

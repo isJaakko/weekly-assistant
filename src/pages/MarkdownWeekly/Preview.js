@@ -45,7 +45,29 @@ export default class Preview extends React.Component {
         >
           <ReactMarkdown
             source={mdText}
+            // allowedTypes={['heading', 'list']}
             renderers={{
+              heading: ({ level, children }) => {
+                const { value = '' } = children.length
+                  ? children[0].props : {};
+
+                if (level === 1) {
+                  return (
+                    <h1
+                      className={
+                        value === '本周问题/故障'
+                          ? 'template-alarm-title-level-1' : children[0]}
+                    >
+                      {children[0]}
+                    </h1>
+                  );
+                }
+                if (level === 2) {
+                  return <h2>{children[0]}</h2>;
+                }
+
+                return children;
+              },
               list: ({ children }) => {
                 return (
                   <ul>
