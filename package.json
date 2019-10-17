@@ -51,10 +51,12 @@
   "dependencies": {
     "antd": "^3.19.8",
     "classnames": "^2.2.6",
+    "codemirror": "^5.49.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "mobx": "^5.10.1",
     "mobx-react": "^6.1.1",
     "react": "^16.8.6",
+    "react-codemirror2": "^6.0.0",
     "react-dom": "^16.8.6",
     "react-loadable": "^5.5.0",
     "react-markdown": "^4.2.2",

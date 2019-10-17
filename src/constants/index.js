@@ -39,20 +39,10 @@ const Template = [
     title: '下周计划',
     show: true,
   },
-  // {
-  //   id: 'malfunction-child-1',
-  //   parentId: 'malfunction',
-  //   level: 2,
-  //   title: '',
-  //   show: true,
-  // },
-  // {
-  //   id: 'malfunction-child-2',
-  //   parentId: 'malfunction-child-1',
-  //   level: 3,
-  //   title: '无',
-  //   show: true,
-  // }
 ];
 
-export default { rootId, MAX_LEVEL, Template };
+const MarkdownTemplate = '# 核心工作要点\n# 本周问题/故障\n# 详细进展\n# 个人成长\n# 下周计划\n';
+
+export default {
+  rootId, MAX_LEVEL, Template, MarkdownTemplate
+};

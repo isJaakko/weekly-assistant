@@ -1,30 +1,23 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Form, Input } from 'antd';
+import { Form } from 'antd';
+import CodeMirror from './CodeMirror';
 import './Editor.less';
 
-const { TextArea } = Input;
+// const { TextArea } = Input;
 
-@inject('weeklyStore')
+@inject('markdownStore')
 @observer
 class Editor extends React.Component {
-  onAdd = (parentId) => {
-    const { weeklyStore } = this.props;
-    weeklyStore.addWeeklyItem(parentId);
-  }
-
-  onDelete = (id) => {
-    const { weeklyStore } = this.props;
-    weeklyStore.deleteWeeklyItem(id);
+  onChange = (e) => {
+    const { markdownStore } = this.props;
+    markdownStore.updateMdText(e.target.value);
   }
 
   render() {
-    // const { weeklyStore } = this.props;
-    // const { weeklyTree } = weeklyStore;
-
     return (
-      <div className="editor-wrap">
-        <TextArea />
+      <div className="markdown-editor-wrap">
+        <CodeMirror />
       </div>
     );
   }

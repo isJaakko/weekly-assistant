@@ -1,4 +1,20 @@
-.editor-wrap {
-  width: 720px;
+.markdown-editor-wrap {
   flex: 1;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  padding: 0;
+  background-color: #272822;
+  border-right: 1px solid #DDD;
+
+  textarea {
+    background-color: #272822;
+    color: #BBB;
+    font-size: 16px;
+    // border: none;
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+  }
 }
