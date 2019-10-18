@@ -1,11 +1,15 @@
 import React from 'react';
 
+const handleSource = (source) => {
+  return source;
+};
+
 export default (props) => {
-  console.log(props.children[0]);
+  const source = props.children[0].props.value;
 
   return (
     <li>
-      {props.children}
+      {handleSource(source)}
     </li>
   );
 };

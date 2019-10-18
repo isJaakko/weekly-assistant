@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Heading from './Renderers/Heading';
-// import List from './Renderers/List';
-import ListItem from './Renderers/ListItem';
+import List from './Renderers/List';
+// import ListItem from './Renderers/ListItem';
 import CodeBlock from './Renderers/CodeBlock';
 import './index.less';
 
@@ -20,7 +20,8 @@ export default class Preview extends React.Component {
             source={source}
             renderers={{
               heading: Heading,
-              listItem: ListItem,
+              list: List,
+              // listItem: ListItem,
               code: CodeBlock
             }}
           />

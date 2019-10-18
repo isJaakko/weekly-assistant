@@ -5,14 +5,22 @@
   padding: 20px;
   flex: 1;
   padding: 10px;
-  height: @editor-height;
-  overflow-y: scroll;
   background-color: #FFF;
   color: #000;
   border: none;
 
+  .markdown-preview-wrap {
+    overflow: auto;
+    height: auto;
+  }
+
+  .tool-bar {
+    padding: 20px;
+  }
+
   h3 {
     .font(@font20, #000);
     font-weight: bold;
+    box-shadow: 0 1px #DCDCDC;
   }
 }
