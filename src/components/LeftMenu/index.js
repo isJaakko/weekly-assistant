@@ -33,13 +33,13 @@ export default class LeftMenu extends React.Component {
         onClick={this.onClickMenuItem}
       >
         <Menu.Item
-          key="/"
+          key="/weekly-assistant"
         >
           <Icon type="edit" />
           <span>Input 编辑器</span>
         </Menu.Item>
         <Menu.Item
-          key="/markdown"
+          key="/weekly-assistant/markdown"
         >
           <Icon type="file-markdown" />
           <span>Markdown 编辑器</span>
