@@ -36,14 +36,20 @@ export default class LeftMenu extends React.Component {
           key="/"
         >
           <Icon type="edit" />
-          <span>编辑周报</span>
+          <span>Input 编辑器</span>
         </Menu.Item>
-        <Menu.Item
+        {/* <Menu.Item
           key="/markdown"
         >
           <Icon type="file-markdown" />
-          <span>markdown</span>
+          <span>Markdown 编辑器</span>
         </Menu.Item>
+        <Menu.Item
+          key="/sample"
+        >
+          <Icon type="question-circle" />
+          <span>示例页面</span>
+        </Menu.Item> */}
       </Menu>
     );
   }

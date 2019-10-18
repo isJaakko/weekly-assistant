@@ -28,8 +28,8 @@ const routeMap = [
     exact: true
   },
   {
-    path: `${routerPrefix}/markdown`,
-    component: './pages/MarkdownWeekly',
+    path: '/sample',
+    component: './pages/SamplePage',
     exact: true
   },
   {

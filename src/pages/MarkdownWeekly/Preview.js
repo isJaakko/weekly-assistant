@@ -1,7 +1,7 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
 import { Button } from 'antd';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from '_src/components/WeeklyMarkdown';
 import { globalMessage } from '_src/utils';
 import './Preview.less';
 
@@ -38,60 +38,12 @@ export default class Preview extends React.Component {
     const { mdText } = markdownStore;
 
     return (
-      <div className="markdown-preview-wrap">
+      <div className="weekly-preview-wrap">
         <div
           className="preview-text"
           ref={ref => { this.ref = ref; }}
         >
-          <ReactMarkdown
-            source={mdText}
-            // allowedTypes={['heading', 'list']}
-            renderers={{
-              heading: ({ level, children }) => {
-                const { value = '' } = children.length
-                  ? children[0].props : {};
-
-                if (level === 1) {
-                  return (
-                    <h1
-                      className={
-                        value === '本周问题/故障'
-                          ? 'template-alarm-title-level-1' : children[0]}
-                    >
-                      {children[0]}
-                    </h1>
-                  );
-                }
-                if (level === 2) {
-                  return <h2>{children[0]}</h2>;
-                }
-
-                return children;
-              },
-              list: ({ children }) => {
-                return (
-                  <ul>
-                    {
-                      children.map((item, index, array) => {
-                        const { value = '' } = item.props.children.length
-                          ? item.props.children[0].props : {};
-                        const result = this.handleSource(value, index + 1, array.length);
-
-                        return (
-                          <React.Fragment key={`${item.key}-frgm`}>
-                            <li key={item.key}>{result}</li>
-                            {
-                              index === array.length - 1 ? <br /> : null
-                            }
-                          </React.Fragment>
-                        );
-                      })
-                    }
-                  </ul>
-                );
-              }
-            }}
-          />
+          <ReactMarkdown source={mdText} />
         </div>
         <Button
           type="primary"

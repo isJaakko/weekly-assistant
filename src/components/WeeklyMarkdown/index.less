@@ -1,0 +1,52 @@
+@import '~_src/less/variables.less';
+
+.markdown-preview-wrap {
+  background: #FFF;
+  padding: 20px;
+
+  flex: 1;
+  padding: 20px;
+  height: @editor-height;
+  overflow-y: scroll;
+  background-color: #FFF;
+  color: #000;
+  border: none;
+
+  h1,
+  h2,
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    .font(@font18, @common-blue);
+    font-weight: bold;
+    white-space: pre-wrap;
+  }
+
+  h1[value="本周问题/故障"] {
+    color: @warning-red;
+  }
+
+  h2 {
+    .font(@font14, #000);
+    font-weight: bold;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  pre {
+    background: #1E1E1E;
+    padding: 10px;
+
+    code {
+      color: #DCDCDC;
+    }
+  }
+}

@@ -6,9 +6,9 @@ import Editor from './CodeMirror';
 import Preview from './Preview';
 import './index.less';
 
-@inject('weeklyStore')
+@inject('markdownStore')
 @observer
-export default class Weekly extends React.Component {
+export default class MarkdownWeekly extends React.Component {
   clearHistory = () => {
     const { markdownStore } = this.props;
 
@@ -19,7 +19,7 @@ export default class Weekly extends React.Component {
   render() {
     return (
       <div className="weekly-wrap">
-        <div>
+        <div className="tool-bar">
           <Popconfirm
             title="当前操作将清除所有已写内容，确认继续？"
             onConfirm={this.clearHistory}
