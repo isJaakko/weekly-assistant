@@ -16,18 +16,18 @@ export default ({ level, children }) => {
 
   if (level === 1) {
     return (
-      <h1
+      <div
         className={
           isAlarmValue(value)
             ? 'template-alarm-title-level-1' : 'template-title-level-1'
         }
       >
         {children[0]}
-      </h1>
+      </div>
     );
   }
   if (level === 2) {
-    return <h2>{children[0]}</h2>;
+    return <div className="template-title-level-2">{children[0]}</div>;
   }
 
   return <h3>{children[0]}</h3>;

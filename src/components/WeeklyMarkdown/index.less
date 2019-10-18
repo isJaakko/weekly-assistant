@@ -6,11 +6,26 @@
 
   flex: 1;
   padding: 20px;
-  // height: @editor-height;
   overflow-y: scroll;
   background-color: #FFF;
   color: #000;
   border: none;
+
+  .template-title-level-1 {
+    .template-title(@common-blue);
+  }
+
+  .template-title-level-2 {
+    .template-subtitle();
+  }
+
+  .template-alarm-title-level-1 {
+    .template-title(@warning-red) !important;
+  }
+
+  div {
+    line-height: 1.75;
+  }
 
   h1,
   h2,
@@ -26,10 +41,6 @@
     white-space: pre-wrap;
   }
 
-  h1.template-alarm-title-level-1 {
-    color: @warning-red;
-  }
-
   h2 {
     .font(@font14, #000);
     font-weight: bold;
@@ -41,7 +52,8 @@
     padding: 0;
   }
 
-  code, li code {
+  code,
+  li code {
     background-color: #DCDCDC;
     padding: 4px;
   }

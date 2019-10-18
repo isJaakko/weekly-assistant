@@ -23,7 +23,7 @@ export default ({ children }) => {
 
           return (
             <React.Fragment key={`${item.key}-frgm`}>
-              <li key={item.key}>{result}</li>
+              <div key={item.key}>{result}</div>
               {
                 index === array.length - 1 ? <br /> : null
               }
