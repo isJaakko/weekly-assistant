@@ -3,7 +3,7 @@ import { action, observable } from 'mobx';
 import constants from '_src/constants';
 import Storage from '_src/utils/storage';
 
-const { MarkdownTemplate } = constants;
+const { MarkdownTemplate, MarkdownDemoTemplate } = constants;
 
 class MarkdownStore {
   /**
@@ -23,6 +23,12 @@ class MarkdownStore {
   @action updateMdText(text) {
     this.mdText = text;
     Storage.set('mdText', text);
+  }
+
+  // 使用 Markdown Demo
+  @action useDemo() {
+    this.mdText = MarkdownDemoTemplate;
+    Storage.set('mdText', MarkdownDemoTemplate);
   }
 }
 

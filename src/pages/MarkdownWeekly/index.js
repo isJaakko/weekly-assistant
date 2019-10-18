@@ -22,6 +22,12 @@ export default class MarkdownWeekly extends React.Component {
     markdownStore.clearWeeklyList();
   }
 
+  useDemo = () => {
+    const { markdownStore } = this.props;
+
+    markdownStore.useDemo();
+  }
+
   render() {
     return (
       <div className="weekly-wrap">
@@ -45,6 +51,12 @@ export default class MarkdownWeekly extends React.Component {
               初始化
             </Button>
           </Popconfirm>
+          <Button
+            className="clear-btn"
+            onClick={this.useDemo}
+          >
+            查看Demo
+          </Button>
         </div>
         <div className="flex weekly-wrap">
           <Editor />
