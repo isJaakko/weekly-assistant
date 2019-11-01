@@ -18,10 +18,10 @@ export default class LeftMenu extends React.Component {
   }
 
   getMenuSelectKeys = () => {
-    const { pathname } = window.location;
-    this.setState({ currentPath: pathname });
-    // const { hash } = window.location;
-    // this.setState({ currentPath: hash.replace(/#/, '') });
+    // const { pathname } = window.location;
+    // this.setState({ currentPath: pathname });
+    const { hash } = window.location;
+    this.setState({ currentPath: hash.replace(/#/, '') });
   }
 
   render() {
