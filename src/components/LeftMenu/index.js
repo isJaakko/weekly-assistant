@@ -18,10 +18,10 @@ export default class LeftMenu extends React.Component {
   }
 
   getMenuSelectKeys = () => {
-    // const { pathname } = window.location;
-    // this.setState({ currentPath: pathname });
-    const { hash } = window.location;
-    this.setState({ currentPath: hash.replace(/#/, '') });
+    const { pathname } = window.location;
+    this.setState({ currentPath: pathname });
+    // const { hash } = window.location;
+    // this.setState({ currentPath: hash.replace(/#/, '') });
   }
 
   render() {
@@ -39,13 +39,13 @@ export default class LeftMenu extends React.Component {
         // key="/weekly-assistant"
         >
           <Icon type="edit" />
-          <span>Input 编辑器</span>
+          <span>普通模式</span>
         </Menu.Item>
         <Menu.Item
           key="/markdown"
         >
           <Icon type="file-markdown" />
-          <span>Markdown 编辑器</span>
+          <span>Markdown 模式</span>
         </Menu.Item>
         {/* <Menu.Item
           key="/sample"

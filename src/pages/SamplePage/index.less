@@ -1,21 +1,32 @@
 @import '~_src/less/variables.less';
 
 .sample-wrap {
-  background: #FFF;
-  padding: 20px;
   flex: 1;
-  padding: 10px;
-  background-color: #FFF;
   color: #000;
   border: none;
+  height: calc(100vh - 104px);
+
+  .markdown-editor-wrap {
+    flex: 1;
+    height: calc(100vh - 146px);
+
+    .react-codemirror2 {
+      height: 100%;
+
+      .CodeMirror.cm-s-material {
+        height: 100%;
+      }
+    }
+  }
 
   .markdown-preview-wrap {
+    flex: 1;
     overflow: auto;
-    height: auto;
+    height: calc(100vh - 146px);
   }
 
   .tool-bar {
-    padding: 20px;
+    margin-bottom: 10px;
   }
 
   h3 {

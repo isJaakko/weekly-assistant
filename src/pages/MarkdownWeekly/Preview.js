@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Button } from 'antd';
+import { Icon } from 'antd';
 import ReactMarkdown from '_src/components/WeeklyMarkdown';
 import { globalMessage } from '_src/utils';
 import './Preview.less';
@@ -38,19 +38,28 @@ export default class Preview extends React.Component {
     const { mdText } = markdownStore;
 
     return (
-      <div className="weekly-preview-wrap">
+      // eslint-disable-next-line
+      <div
+        className="markdown-weekly-preview-wrap"
+        onClick={this.copyText}
+      >
+        <div className="copy-wrap">
+          点击空白处复制&nbsp;
+          <Icon type="copy" />
+        </div>
         <div
           className="preview-text"
           ref={ref => { this.ref = ref; }}
         >
           <ReactMarkdown source={mdText} />
         </div>
-        <Button
+        {/* <Button
           type="primary"
+          className="copy-btn"
           onClick={this.copyText}
         >
           一键复制
-        </Button>
+        </Button> */}
       </div>
     );
   }

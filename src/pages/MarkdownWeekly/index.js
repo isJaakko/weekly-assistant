@@ -11,6 +11,12 @@ import './index.less';
 @inject('markdownStore')
 @observer
 export default class MarkdownWeekly extends React.Component {
+  componentDidMount() {
+    const { markdownStore } = this.props;
+
+    markdownStore.useCustomer();
+  }
+
   toSample = () => {
     this.props.history.push('/sample');
   }
@@ -30,13 +36,13 @@ export default class MarkdownWeekly extends React.Component {
 
   render() {
     return (
-      <div className="weekly-wrap">
+      <div className="markdown-weekly-wrap">
         <div className="tool-bar">
           <Button
             type="primary"
             onClick={this.toSample}
           >
-            查看文档
+            查看Demo
           </Button>
           <Popconfirm
             title="当前操作将清除所有已写内容，确认继续？"
@@ -51,14 +57,8 @@ export default class MarkdownWeekly extends React.Component {
               初始化
             </Button>
           </Popconfirm>
-          <Button
-            className="clear-btn"
-            onClick={this.useDemo}
-          >
-            查看Demo
-          </Button>
         </div>
-        <div className="flex weekly-wrap">
+        <div className="flex weekly-flex-wrap">
           <Editor />
           <Preview />
         </div>

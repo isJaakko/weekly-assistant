@@ -1,12 +1,11 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Form } from 'antd';
 import CodeMirror from './CodeMirror';
 import './Editor.less';
 
 @inject('markdownStore')
 @observer
-class Editor extends React.Component {
+export default class Editor extends React.Component {
   onChange = (e) => {
     const { markdownStore } = this.props;
     markdownStore.updateMdText(e.target.value);
@@ -23,4 +22,3 @@ class Editor extends React.Component {
     );
   }
 }
-export default Form.create({})(Editor);

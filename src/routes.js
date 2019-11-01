@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  HashRouter as Router, Switch, Route,
+  BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Loading from './components/Loading';
