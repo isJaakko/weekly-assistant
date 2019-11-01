@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[23],{138:function(t,e,n){"use strict";n.r(e),e.default=[{name:"home",path:"/"},{name:"test",path:"/test"}]}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[23],{140:function(t,e,n){"use strict";n.r(e),e.default=[{name:"home",path:"/"},{name:"test",path:"/test"}]}}]);
