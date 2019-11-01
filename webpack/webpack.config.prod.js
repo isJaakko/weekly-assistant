@@ -6,8 +6,8 @@ const dist = '../dist';
 module.exports = Object.assign(base, {
   mode: 'production',
   output: {
-    // publicPath: '/weekly-assistant/',
-    publicPath: '/',
+    publicPath: '/weekly-assistant/',
+    // publicPath: '/',
     path: path.resolve(__dirname, dist),
     filename: '[name].[hash:8].js',
     chunkFilename: 'common/[name]/[name].js',
