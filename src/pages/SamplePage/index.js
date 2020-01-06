@@ -2,9 +2,10 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button } from 'antd';
 import { inject, observer } from 'mobx-react';
-import ReactMarkdown from '_src/components/WeeklyMarkdown';
 import CodeMirrorEditor from '_src/components/CodeMirrorEditor';
+import Preview from '_src/components/Preview';
 import './index.less';
+
 @withRouter
 @inject('markdownStore')
 @observer
@@ -35,7 +36,8 @@ export default class MarkdownWeekly extends React.Component {
               markdownStore.updateDemoText(value);
             }}
           />
-          <ReactMarkdown
+          <Preview
+            className="sample-weekly-preview"
             source={mdText}
           />
         </div>

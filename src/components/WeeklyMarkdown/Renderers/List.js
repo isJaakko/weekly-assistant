@@ -1,19 +1,25 @@
 import React from 'react';
 
 const handleSource = (source, index, length) => {
+  let result = source.replace(/^/, `${index}、`);
+  const pattern = /[;；.。]*$/;
+
   if (!source) {
-    return '';
+    return result;
   }
 
-  let result = source;
-  result = result.replace(/^/, `${index}、`);
+  if (pattern.test(source)) {
+    result = result.replace(pattern, index < length ? '；' : '。');
+    return result;
+  }
+
   result = result.replace(/$/, index < length ? '；' : '。');
   return result;
 };
 
 export default ({ children }) => {
   return (
-    <ul>
+    <div>
       {
         children.map((item, index, array) => {
           const { value = '' } = item.props.children.length > 0
@@ -31,6 +37,6 @@ export default ({ children }) => {
           );
         })
       }
-    </ul>
+    </div>
   );
 };

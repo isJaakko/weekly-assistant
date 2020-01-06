@@ -7,7 +7,7 @@ import Loading from './components/Loading';
 // import NotMatch from './pages/NotMatch';
 import App from './App';
 
-const routerPrefix = '/weekly-assistant';
+// const routerPrefix = '/weekly-assistant';
 const delay = 250;
 const timeout = 10000;
 
@@ -18,17 +18,7 @@ const routeMap = [
     exact: true
   },
   {
-    path: `${routerPrefix}`,
-    component: './pages/Home',
-    exact: true
-  },
-  {
     path: '/markdown',
-    component: './pages/MarkdownWeekly',
-    exact: true
-  },
-  {
-    path: `${routerPrefix}/markdown`,
     component: './pages/MarkdownWeekly',
     exact: true
   },

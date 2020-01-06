@@ -4,7 +4,7 @@ import template from '_src/constants/template';
 import { globalMessage } from '_src/utils';
 import Storage from '_src/utils/storage';
 
-const { rootId, MAX_LEVEL } = constants;
+const { ROOT_ID, MAX_LEVEL } = constants;
 const { Template } = template;
 
 const defaultWeeklyItem = {
@@ -53,7 +53,7 @@ class WeeklyStore {
 
   // 新增列表项
   @action addWeeklyItem(parentId) {
-    const parentNode = this.getParentNode(parentId) || { level: rootId + 1 };
+    const parentNode = this.getParentNode(parentId) || { level: ROOT_ID + 1 };
     const { level } = parentNode;
     if (level > MAX_LEVEL) {
       return globalMessage('warning', '无法添加下级');
@@ -105,7 +105,7 @@ class WeeklyStore {
 
   // 获取根节点
   @action getRoot() {
-    return this.weeklyList.filter(item => item.parentId === rootId);
+    return this.weeklyList.filter(item => item.parentId === ROOT_ID);
   }
 
   // 包装数据成树形结构

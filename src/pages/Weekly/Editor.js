@@ -11,7 +11,7 @@ import Storage from '_src/utils/storage';
 import './Editor.less';
 
 const { TextArea } = Input;
-const { rootId } = constants;
+const { ROOT_ID } = constants;
 const { weeklyInstruction } = base;
 
 @inject('weeklyStore')
@@ -35,7 +35,7 @@ class Editor extends React.Component {
   }
 
   addRootNode = () => {
-    this.onAdd(rootId);
+    this.onAdd(ROOT_ID);
   }
 
   clearHistory = () => {
@@ -86,7 +86,7 @@ class Editor extends React.Component {
           bordered={false}
           title={(
             <TextArea
-              autosize={{ minRows: 1, maxRows: 6 }}
+              autoSize={{ minRows: 1, maxRows: 6 }}
               value={item.title}
               onChange={(e) => {
                 this.handleChange(e, { key: 'title', id: item.id });

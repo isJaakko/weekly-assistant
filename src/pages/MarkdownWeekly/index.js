@@ -1,66 +1,96 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
-import { Popconfirm, Button } from 'antd';
-import Storage from '_src/utils/storage';
-import Editor from './CodeMirror';
-import Preview from './Preview';
+import { Popconfirm, Radio, Button } from 'antd';
+import Preview from '_src/components/Preview';
+import Editor from '_src/components/CodeMirrorEditor';
+import Constants from '_src/constants';
 import './index.less';
 
+const { MarkdownTypeEnum } = Constants;
+const { common, tl, demo } = MarkdownTypeEnum;
 @withRouter
 @inject('markdownStore')
 @observer
 export default class MarkdownWeekly extends React.Component {
-  componentDidMount() {
-    const { markdownStore } = this.props;
+  constructor(...props) {
+    super(...props);
 
-    markdownStore.useCustomer();
+    this.state = {
+      previewVisible: true
+    };
   }
 
   toSample = () => {
     this.props.history.push('/sample');
   }
 
-  clearHistory = () => {
-    const { markdownStore } = this.props;
-
-    Storage.remove('weeklyList');
-    markdownStore.clearWeeklyList();
-  }
-
-  useDemo = () => {
-    const { markdownStore } = this.props;
-
-    markdownStore.useDemo();
-  }
-
   render() {
+    const { previewVisible } = this.state;
+    const { markdownStore } = this.props;
+    const { markdownType } = markdownStore;
+    const mdSource = markdownStore[markdownType];
+
     return (
       <div className="markdown-weekly-wrap">
-        <div className="tool-bar">
-          <Button
-            type="primary"
-            onClick={this.toSample}
+
+        <div className="flex flex-justify-center">
+          <Radio.Group
+            defaultValue={markdownType}
+            buttonStyle="outline"
+            onChange={(e) => {
+              const type = e.target.value;
+              markdownStore.updateMarkdownType(type);
+            }}
           >
-            查看Demo
-          </Button>
+            <Radio.Button value={common}>个人模板</Radio.Button>
+            <Radio.Button value={tl}>TL 模板</Radio.Button>
+            <Radio.Button value={demo}>示例模板</Radio.Button>
+          </Radio.Group>
+        </div>
+
+        <div className="flex tool-bar">
           <Popconfirm
             title="当前操作将清除所有已写内容，确认继续？"
-            onConfirm={this.clearHistory}
+            onConfirm={markdownStore.clearWeekly}
             okText="确认"
             cancelText="取消"
           >
             <Button
+              className="tool-item clear-btn"
               type="danger"
-              className="clear-btn"
             >
               初始化
             </Button>
           </Popconfirm>
         </div>
+
         <div className="flex weekly-flex-wrap">
-          <Editor />
-          <Preview />
+          <Editor
+            className="markdown-editor"
+            value={mdSource}
+            onBeforeChange={(editor, data, value) => {
+              markdownStore.updateMdText(value);
+            }}
+          />
+          {/* eslint-disable-next-line */}
+          <div
+            className="divider"
+            role="button"
+            title={previewVisible ? '点击折叠预览面板' : '点击展开预览面板'}
+            onClick={() => {
+              this.setState((preState) => {
+                return {
+                  previewVisible: !preState.previewVisible
+                };
+              });
+            }}
+          />
+          <Preview
+            className="markdown-preview"
+            source={mdSource}
+            style={{ display: previewVisible ? 'block' : 'none' }}
+          />
         </div>
       </div>
     );

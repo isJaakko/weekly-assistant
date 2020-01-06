@@ -1,7 +1,6 @@
 @import '~_src/less/variables.less';
 
 .sample-wrap {
-  flex: 1;
   color: #000;
   border: none;
   height: calc(100vh - 104px);
@@ -19,19 +18,11 @@
     }
   }
 
-  .markdown-preview-wrap {
-    flex: 1;
-    overflow: auto;
-    height: calc(100vh - 146px);
+  .sample-weekly-preview {
+    height: @editor-height;
   }
 
   .tool-bar {
     margin-bottom: 10px;
-  }
-
-  h3 {
-    .font(@font20, #000);
-    font-weight: bold;
-    box-shadow: 0 1px #DCDCDC;
   }
 }

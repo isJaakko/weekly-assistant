@@ -13,6 +13,10 @@ export default class App extends React.Component {
     collapsed: true,
   };
 
+  componentDidMount() {
+    document.title = siteTitle;
+  }
+
   onCollapse = (collapsed) => {
     this.setState({ collapsed });
   };
@@ -35,7 +39,7 @@ export default class App extends React.Component {
           >
             <LeftMenu />
           </Sider>
-          <Content>
+          <Content className="flex flex-direction-column main-content">
             {this.props.children}
           </Content>
         </Layout>
